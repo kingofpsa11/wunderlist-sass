@@ -17,6 +17,7 @@ $(document).ready(function () {
     e.preventDefault();
     $('#user-popover').toggle();
   });
+  
 
   //Display modal
   $('#account-settings').click(function (e) { 
@@ -44,9 +45,8 @@ $(document).ready(function () {
         child.removeClass('selected')
         $('.tasks:first').prepend(child)
         child.find('.taskItem-titleWrapper').text($(this).val())
-        child.find('.taskItem-duedate').text('')        
-        $.post("tasks.php", {task:$(this).val()});
-        $(this).val('')
+        child.find('.taskItem-duedate').text('')
+        $('form[name="frmTask"]').submit()
       }
   });
 
