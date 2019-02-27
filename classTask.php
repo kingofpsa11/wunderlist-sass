@@ -78,12 +78,12 @@ class TasksClass
         echo $doing . '---' . $i . '---' . $done . '---' . $j;
     }
 
-    public function addTasks($title)
+    public function addTasks()
     {
-        $file = fopen("database.txt","a");
-        $string = "\\n{'title':'" . $title . "'}";
-        fwrite($file, $string);
-        fclose($file);
+        include('connection.php');
+        $sql = "INSERT INTO tasks (title,status) VALUES ('" . $this->title . "','doing')";        
+        $conn->query($sql);
+        $conn->close();
     }
 
     public function markComplete($id)
@@ -99,7 +99,7 @@ class TasksClass
     public function markNotComplete($id)
     {
         include('connection.php');
-        $sql = "UPDATE tasks
+        $sql = "UPDATE tasks 
                 SET status='doing'
                 WHERE id=" . $id;
         $conn->query($sql);

@@ -1,8 +1,11 @@
+
 <?php
-$file = fopen("database.txt","r");
-$result = fread($file,filesize("database.txt"));
-// $obj = json_decode($result);
-// var_dump($obj);
-echo $result;
-fclose($file);
+$myObj = new stdClass();
+$myObj->name = "John";
+$myObj->age = 30;
+$myObj->city = "New York";
+
+$myJSON = json_encode($myObj);
+
+echo $myJSON;
 ?>

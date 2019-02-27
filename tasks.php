@@ -35,10 +35,4 @@ if (isset($_POST['rel_id_doing'])) {
     $task = new TasksClass();
     $task->markNotComplete($_POST['rel_id_doing']);
 }
-
-if (isset($_POST['task'])) {
-    $task = new TasksClass();
-    $task->addTasks($_POST['task']);
-    header("Location: index.php");
-}
 ?>
